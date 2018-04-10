@@ -1,0 +1,115 @@
+1.斐波那契
+a=0,b=1
+while  b<10:
+  print(b)     print(b, end=',')//输出到同一行
+  a,b=b,a+b
+
+
+2.条件控制:注意缩进表示一个代码块
+(1)
+age = int(input("请输入你家狗狗的年龄: "))
+print("")
+if age < 0:
+    print("你是在逗我吧!")
+elif age == 1:
+    print("相当于 14 岁的人。")
+elif age == 2:
+    print("相当于 22 岁的人。")
+elif age > 2:
+    human = 22 + (age -2)*5
+    print("对应人类年龄: ", human)
+ 
+### 退出提示
+input("点击 enter 键退出")
+
+
+(2)
+number = 7
+guess = -1
+print("数字猜谜游戏!")
+while guess != number:
+    guess = int(input("请输入你猜的数字："))
+    if guess == number:
+        print("恭喜，你猜对了！")
+    elif guess < number:
+        print("猜的数字小了...")
+    elif guess > number:
+        print("猜的数字大了...")
+        
+
+ 3.if 嵌套格式：
+在嵌套 if 语句中，可以把 if...elif...else 结构放在另外一个 if...elif...else 结构中。
+if 表达式1:
+    语句
+    if 表达式2:
+        语句
+    elif 表达式3:
+        语句
+    else:
+        语句
+elif 表达式4:
+    语句
+else:
+    语句
+ 
+ 
+4.循环语句（for和while）没有do while 
+ 
+ while 判断条件：
+      语句
+
+n = 100 
+sum = 0
+counter = 1
+while counter <= n:
+    sum = sum + counter
+    counter += 1 
+print("1 到 %d 之和为: %d" % (n,sum))
+ 
+while循环使用else
+在 while … else 在条件语句为 false 时执行 else 的语句块：
+count = 0
+while count < 5:
+   print (count, " 小于 5")
+   count = count + 1
+else:
+   print (count, " 大于或等于 5")
+
+
+for循环：for循环可以遍历任何序列的项目，如一个列表或者一个字符串。
+for <variable> in <sequence>:
+    <statements>
+else:
+    <statements>
+languages = ["C", "C++", "Perl", "Python"] 
+for x in languages:
+   print (x)
+
+
+range（）函数
+如果你需要遍历数字序列，可以使用内置range()函数。它会生成数列，例如: 
+for i in range(5):
+      print(i)
+      
+可以结合range()和len()函数以遍历一个序列的索引,如下所示:
+>>>a = ['Google', 'Baidu', 'Runoob', 'Taobao', 'QQ']
+>>> for i in range(len(a)):
+...     print(i, a[i])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 

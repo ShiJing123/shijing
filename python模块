@@ -1,0 +1,19 @@
+import 模块名
+import ... from 
+dir()函数：排好序的字符串列表，内容是一个模块里定义过的名字
+返回的列表容纳了在一个模块里定义的所有模块，变量和函数
+global()和locals（）返回全局和局部命名空间中的名字
+reload()函数 模块重新导入
+python中的包
+
+
+python文件I/O
+
+raw_input 标准输入读取一行，返回字符串
+input     可以接收一个python表达式作为输入，将结果返回
+
+
+打开关闭文件
+
+用python内置的open（）函数打开文件，创建一个file对象
+file object=open(file_name,文件打开方式，buffering是否会寄存行...)

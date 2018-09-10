@@ -1,0 +1,123 @@
+1。给定一个字符串只含有数字，判定这个字符串能表达的所有IP地址（或者是IP的个数）LEETCODE 93  复原IP
+java代码
+import Scanner as sc
+public class Main{
+public static void main(args[] ){
+   String s=sc.nextline()
+   ArrayList<String> result=new ArrayList<String>();
+   result=restoreIpAddresses(s)
+   System.out.print(reslult)
+  
+   public ArrayList<String> restoreIpAddresses(String s) {
+        ArrayList<String> result=new ArrayList<String>();
+        int len=s.length();
+        
+        for(int i=1;i<4&&i<len-2;i++){
+            for(int j=i+1;j<i+4&&j<len-1;j++){
+                for(int k=j+1;k<j+4&&k<len;k++){
+                    if(len-k>=4)      //判断字符串 是否有剩余
+                        continue;
+                    int a=Integer.parseInt(s.substring(0,i));
+                    int b=Integer.parseInt(s.substring(i,j));
+                    int c=Integer.parseInt(s.substring(j,k));
+                    int d=Integer.parseInt(s.substring(k));
+                    
+                    if(a>255||b>255||c>255||d>255)
+                        continue;
+                    String ip=a+"."+b+"."+c+"."+d;
+                    if(ip.length()<len+3)
+                        continue;
+                    result.add(ip);
+                }
+            }
+        }
+        return result;                         #返回所有情况列表
+    }
+    }
+}
+
+
+
+2.最长无重复字符子串
+https://www.cnblogs.com/haozhengfei/p/d0906ebc98f7b6eaecb3ecd738dc78ac.html
+import java.util.*;
+public class DistinctSubstring {
+    public int longestSubstring(String A, int n) {
+        //charPosition统计A中每种字符之前出现的位置
+        Map<Character, Integer> charPosition = new HashMap<Character, Integer>();
+        //preArr代表以s[i-1]结尾的情况下，最长无重复子串的长度
+        int[] preArr = new int[A.length()];
+        char[] str2charArr = A.toCharArray();
+       //从头到尾遍历str2charArr，统计出以每个字符为当前位置的向前最长无重复子串的长度
+        for(int i=0; i<A.length(); i++){
+            Integer lastPosOfChar = charPosition.get(str2charArr[i]);
+            if(lastPosOfChar == null){//说明当前字符第一次出现
+                //更新最长无重复子串的长度
+            preArr[i] = i == 0 ? 1 : preArr[i-1] + 1
+                //记录当前字符出现的位置
+                charPosition.put(str2charArr[i], i);
+            }
+            else{//当前字符不是第一次出现(既然不是第一次出现，那也不是在第一个位置),也就是之前出现过该字符
+                //获取前一个字符最长无重复子串的长度
+                int aPos = lastPosOfChar + 1;
+                int unRepeatLen = preArr[i-1];
+                int bPos = i - unRepeatLen;
+                if(aPos >= bPos){
+                //当前位置的最长无重复子串长度
+                    preArr[i] = i - aPos + 1;
+                }
+                else{
+                    //当前位置的最长无重复子串长度
+                    preArr[i] = i - bPos + 1;
+                }
+                //跟新当前字符出现的位置
+                charPosition.put(str2charArr[i], i);
+            }
+        }
+        //遍历preArr,最大值即为所求
+        int max = preArr[0];
+        for(int i: preArr) if(i > max) max = i;
+        return max;
+    }
+}
+
+3.统计数组中各元素出现次数并按出现次数从大到小排列
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Collections;
+import java.util.Map.Entry;
+class Solution
+    { List < Integer > salaryfrequeny(int num, int[] salaries)
+    {
+        Map < Integer, Integer > map = new  HashMap < Integer, Integer > ();
+    for (int in: salaries){ Integer count = map.get(in);
+    if (null != count){ 
+            map.put( in, count+1);
+    }
+    else{map.put( in, 1);
+       }
+     }
+    ArrayList < Map.Entry < Integer, Integer >> list=new ArrayList < Map.Entry < Integer, Integer >> ();
+    list.addAll(map.entrySet());
+    Collections.sort(list, new Comparator < Entry < Integer, Integer >> (){
+                                public int compare(Entry < Integer, Integer > arg0, Entry < Integer, Integer > arg1){
+                                               return arg1.getValue().compareTo(arg0.getValue());
+                               }});
+   ArrayList < Integer > result = new ArrayList < Integer > ();
+   ArrayList < Integer > count = new ArrayList < Integer > ();
+   for (Entry < Integer, Integer > entry: list){
+          count.add(entry.getValue());
+           result.add(entry.getKey());}
+}
+         return result;
+}}
+
+
+
+
+
+
+

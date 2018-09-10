@@ -1,0 +1,69 @@
+笔试的输入输出总结
+Java
+1.import Scanner  as sc
+  sc.nextInt()         #获得整数
+  sc.nextLine()        #获取一行
+                       
+  sc.next()            #获取一个输入
+  int[] aa=new int[n]          #输入为数组时
+  for(int i;i<n;i++){
+      aa[i]=sc.nextInt()
+  }
+  
+
+python3
+1.二维数组的输入，创建m*n维的二维数组并从键盘接收输入
+import os
+n=input()
+m=int(n)
+mm=[[0 for i in range(m)] for j in range(m)]
+cnt=0
+for i in range(m):
+    for j in range(m):
+         aa=input()
+         mm[i][j]=int(aa)
+         
+2.接收1维数组
+m=input（）
+mm=[0 for i in range(m)]
+mm[i]=int(input()) for i in range(m)
+
+3.字符串访问
+京东笔试题：相似字符串个数
+ import time
+ sss = time.time()
+ S = 'ababcb'
+ T = 'xyx'
+ zistr = [S[i:i+len(T)] for i in range(0, len(S)-len(T)+1)]              #从S字符串截取出T长度的所有字符串
+ query = {}                                                                 
+ [query.__setitem__(k, None) for k in T if k not in query.keys()]       
+ #__setitem__(self,key,value)：该方法应该按一定的方式存储和key相关的value。在设置类实例属性时自动调用的。
+ print(zistr,query)
+ ans = []
+ for ss in zistr:
+         ssx = []
+         [ssx.append(x) for x in ss if x not in ssx]
+         print('ssx',ssx)
+         if len(ssx) == len(set(T)):
+             print('enumerate',list(enumerate(query.keys())))   
+             #enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
+             #seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+             # >>> list(enumerate(seasons))
+              #        [(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+               #>>> list(enumerate(seasons, start=1))       # 小标从 1 开始
+                #      [(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
+             for i, k in enumerate(query.keys()):
+                 query[k] = ssx[i]
+                 print('query',query)
+         else:
+             continue
+         new = ''.join([query[x] for x in T])    #join函数将字符连接在一起
+        print('new',new)
+         ans.append(1) if ss == new else ans.append(0)
+         print('ans',ans)
+ print('query',query)
+ x = solve(S, T)
+ sss = time.time() - sss
+print('相似字符串数:', x, '计算时间:', sss)
+
+

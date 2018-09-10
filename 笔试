@@ -1,11 +1,14 @@
 笔试的输入输出总结
 Java
-1.import Scanner  as sc
+1.import java.util.Scanner;
+  Scanner sc=new Scanner(System.in);
   sc.nextInt()         #获得整数
   sc.nextLine()        #获取一行
                        
   sc.next()            #获取一个输入
   int[] aa=new int[n]          #输入为数组时
+  for(int x:aa)
+  {}                          #遍历数组时很方便
   for(int i;i<n;i++){
       aa[i]=sc.nextInt()
   }

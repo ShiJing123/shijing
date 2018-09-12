@@ -116,6 +116,14 @@ class Solution
 }}
 
 
+4.全排列代码
+# n, m = map(int, input().split())
+# a = m - 1
+# if n<=m:
+#  for i in range(0, n - 2):
+#      a = a * (a - 1)
+#
+# print(a % ((10 ** 9) + 7))
 
 
 

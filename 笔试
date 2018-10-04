@@ -46,6 +46,36 @@ m=input（）
 mm=[0 for i in range(m)]
 mm[i]=int(input()) for i in range(m)
 
+
+3.python输出格式
+  输出的结果不换行：
+  print(objects,' ',end='')
+  
+  print的完整格式为print(objects,sep,end,file,flush),其中后面4个为可选参数
+        sep
+        在输出字符串之间插入指定字符串，默认是空格，例如：
+        >>>print("a","b","c",sep="**")
+        a**b**c
+        end
+        在print输出语句的结尾加上指定字符串，默认是换行(\n),例如：
+        >>>print("a",end="$")
+        a$
+        print默认是换行，即输出语句后自动切换到下一行，对于python3来说，如果要实现输出不换行的功能，那么可以设置end=''（python2可以在print语句之后加“，”实现不换行的功能）
+        file
+        将文本输入到file-like对象中，可以是文件，数据流等等，默认是sys.stdout
+        >>>f = open('abc.txt','w')
+        >>>print('a',file=f)
+        flush
+        flush值为True或者False，默认为Flase,表示是否立刻将输出语句输入到参数file指向的对象中（默认是sys.stdout）例如：
+        >>>f = open('abc.txt','w')
+        >>>print('a',file=f)
+        可以看到abc.txt文件这时为空，只有执行f.close()之后才将内容写进文件。
+        如果改为：
+        >>>print('a',file=f,flush=True)
+        则立刻就可以看到文件的内容
+
+
+
 3.字符串访问
 京东笔试题：相似字符串个数
  import time
